@@ -2,12 +2,12 @@ import Feather from '@expo/vector-icons/Feather';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs } from "expo-router";
 import React from "react";
+import { View } from 'react-native';
 import AnimatedTabBarButton from '../../component/AnimatedTabBarButton';
 
 export default function TabLayout() {
   return (
-    <>
-
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
       <Tabs
         screenOptions={{
           headerShown: false,
@@ -16,9 +16,10 @@ export default function TabLayout() {
             width: 300,
             height: 50,
             alignSelf: 'center',
-            gap:5,
-            borderRadius:20,
-            marginBottom:10
+            gap: 5,
+            borderRadius: 20,
+            shadowColor: "black",
+            backgroundColor: 'white',
           },
         }}
       >
@@ -52,8 +53,7 @@ export default function TabLayout() {
             tabBarButton: (props) => <AnimatedTabBarButton {...props} />,
           }}
         />
-
       </Tabs>
-    </>
+    </View>
   )
 }
