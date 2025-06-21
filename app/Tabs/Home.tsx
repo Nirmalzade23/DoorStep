@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View, Text } from 'react-native'
 import ProfileImage from '../../component/ProfileImage'
 import { s , vs} from 'react-native-size-matters'
 import { router } from 'expo-router'
+import Search from '@/component/searchBar'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <Text style={{fontSize:s(40), fontWeight:"semibold"}}> What would you  </Text>
         <Text style={{fontSize:s(40), fontWeight:"semibold", color:"#8C8D91"}}> like to order?</Text>
       </View>
+      <Search/>
     </View>
   )
 }
