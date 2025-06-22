@@ -3,9 +3,9 @@ import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity } fro
 import { s, vs } from 'react-native-size-matters';
 
 const stores = [
-  { name: 'Food', image: require('../assets/images/icon.png') },
-  { name: '7/11', image: require('../assets/images/icon.png') },
-  { name: 'Starbucks', image: require('../assets/images/icon.png') },
+  { name: 'Food', image: require('../assets/images/food.jpg') },
+  { name: '7/11', image: require('../assets/images/7eleven.jpg') },
+  { name: 'Starbucks', image: require('../assets/images/starbucks.jpg') },
   { name: 'Hardware', image: require('../assets/images/icon.png') },
   { name: 'Car Washing', image: require('../assets/images/icon.png') },
   { name: 'Medical store', image: require('../assets/images/icon.png') },
@@ -34,7 +34,7 @@ export default StoreList;
 
 const styles = StyleSheet.create({
   scroll: {
-    marginTop: vs(30),
+    marginTop: vs(10),
     maxHeight: vs(400), // adjust as needed
   },
   grid: {
