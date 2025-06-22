@@ -3,13 +3,20 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { s, vs } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Search = () => {
+type SearchProps = {
+  value: string;
+  onChangeText: (text: string) => void;
+};
+
+const Search: React.FC<SearchProps> = ({ value, onChangeText }) => {
   return (
     <View style={styles.container}>
       <Icon name="search" size={20} color="#000" style={styles.icon} />
       <TextInput
         style={styles.input}
         placeholder="Search..."
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   )

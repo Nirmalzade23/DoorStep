@@ -2,22 +2,18 @@ import React from 'react';
 import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { s, vs } from 'react-native-size-matters';
 
-const stores = [
-  { name: 'Food', image: require('../assets/images/food.jpg') },
-  { name: '7/11', image: require('../assets/images/7eleven.jpg') },
-  { name: 'Starbucks', image: require('../assets/images/starbucks.jpg') },
-  { name: 'Hardware', image: require('../assets/images/icon.png') },
-  { name: 'Car Washing', image: require('../assets/images/icon.png') },
-  { name: 'Medical store', image: require('../assets/images/icon.png') },
-  { name: 'Wellness Forever', image: require('../assets/images/icon.png') },
-  { name: 'Grocery', image: require('../assets/images/icon.png') },
-  { name: 'Laundary', image: require('../assets/images/icon.png') },
-  { name: 'Cloth Store', image: require('../assets/images/icon.png') },
-];
+export type Store = {
+  name: string;
+  image: any;
+};
+
+type StoreListProps = {
+  stores: Store[];
+};
 
 const { width } = Dimensions.get('window');
 
-const StoreList = () => {
+const StoreList: React.FC<StoreListProps> = ({ stores }) => {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.grid} showsVerticalScrollIndicator={false}>
       {stores.map((store, idx) => (
