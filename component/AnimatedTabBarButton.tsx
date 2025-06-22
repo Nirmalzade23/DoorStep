@@ -2,7 +2,7 @@ import React from 'react';
 import { Pressable } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
-export default function AnimatedTabBarButton(props) {
+export default function AnimatedTabBarButton(props ) {
   const { children, accessibilityState, style, ...rest } = props;
   const focused = accessibilityState?.selected;
   const scale = useSharedValue(focused ? 1.2 : 1);

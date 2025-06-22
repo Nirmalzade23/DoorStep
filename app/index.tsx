@@ -17,7 +17,7 @@ const index = () => {
         alignItems: "center"
       }}>
         <Text style={{ fontSize: 14, marginBottom: s(5) }}>
-          your last minitue option
+          One for all store
         </Text>
         <Text style={{
           fontSize: 25, fontWeight: "semibold", marginBottom: s(5)
