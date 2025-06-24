@@ -30,7 +30,7 @@ export default StoreList;
 
 const styles = StyleSheet.create({
   scroll: {
-    marginTop: vs(10),
+    marginTop: vs(5),
     maxHeight: vs(400), // adjust as needed
   },
   grid: {

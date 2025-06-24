@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { s, vs } from 'react-native-size-matters'
 import ProfileImage from '../../component/ProfileImage'
 import StoreList, { Store } from '../../component/StoreList'
+import { router } from 'expo-router'
 
 const stores: Store[] = [
   { name: 'Food', image: require('../../assets/images/food.jpg') },
@@ -26,7 +27,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => {/* TODO: Update to correct profile route */}}>
+        <TouchableOpacity onPress={() =>router.push("/Profile")}>
           <ProfileImage />
         </TouchableOpacity>
       </View>

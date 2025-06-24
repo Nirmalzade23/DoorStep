@@ -50,8 +50,8 @@ export default function TabLayout() {
           name="Home"
           options={{
             headerShown: false,
-            tabBarIcon: () => (
-              <Feather name="home" size={24} color="black" />
+            tabBarIcon: ({ focused }) => (
+              <Feather name="home" size={24} color={focused ? "#5d17b0" : "black"} />
             ),
             tabBarButton: (props) => <AnimatedTabBarButton {...props} />,
           }}
@@ -60,8 +60,8 @@ export default function TabLayout() {
           name="explore"
           options={{
             headerShown: false,
-            tabBarIcon: () => (
-              <Ionicons name="compass" size={24} color="black" />
+            tabBarIcon: ({ focused }) => (
+              <Ionicons name="compass" size={24} color={focused ? "#5d17b0" : "black"} />
             ),
             tabBarButton: (props) => <AnimatedTabBarButton {...props} />,
           }}
@@ -70,8 +70,8 @@ export default function TabLayout() {
           name="Notification"
           options={{
             headerShown: false,
-            tabBarIcon: () => (
-              <Ionicons name="notifications" size={24} color="black" />
+            tabBarIcon: ({ focused }) => (
+              <Ionicons name="notifications" size={24} color={focused ? "#5d17b0" : "black"} />
             ),
             tabBarButton: (props) => <AnimatedTabBarButton {...props} />,
           }}

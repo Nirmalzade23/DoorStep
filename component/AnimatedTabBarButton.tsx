@@ -12,7 +12,7 @@ export default function AnimatedTabBarButton(props ) {
   }, [focused]);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: focused ? '#e0e0e0' : 'transparent',
+    backgroundColor: focused ? '#5d17b0' : 'transparent',
     borderRadius: 16,
     padding: 8,
     transform: [{ scale: scale.value }],
