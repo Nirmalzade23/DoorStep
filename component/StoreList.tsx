@@ -1,5 +1,6 @@
+import { router } from 'expo-router';
 import React from 'react';
-import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { s, vs } from 'react-native-size-matters';
 
 export type Store = {
@@ -12,51 +13,60 @@ type StoreListProps = {
 };
 
 const { width } = Dimensions.get('window');
+const CARD_MARGIN = s(10);
+const NUM_COLUMNS = 2;
+const CARD_SIZE = (width - CARD_MARGIN * (NUM_COLUMNS * 2 + 2)) / NUM_COLUMNS;
 
 const StoreList: React.FC<StoreListProps> = ({ stores }) => {
+  const handlePress = (store: Store) => {
+    router.push({ pathname: '/StoreDetail', params: { storeName: store.name } });
+  };
+
   return (
-    <ScrollView style={styles.scroll} contentContainerStyle={styles.grid} showsVerticalScrollIndicator={false}>
-      {stores.map((store, idx) => (
-        <TouchableOpacity key={idx} style={styles.card}>
-          <Image source={store.image} style={styles.image} />
-          <Text style={styles.label}>{store.name}</Text>
+    <FlatList
+      data={stores}
+      numColumns={NUM_COLUMNS}
+      keyExtractor={(_, idx) => idx.toString()}
+      contentContainerStyle={styles.grid}
+      renderItem={({ item }) => (
+        <TouchableOpacity style={styles.card} onPress={() => handlePress(item)}>
+          <Image source={item.image} style={styles.image} />
+          <Text style={styles.label}>{item.name}</Text>
         </TouchableOpacity>
-      ))}
-    </ScrollView>
+      )}
+      showsVerticalScrollIndicator={false}
+    />
   );
 };
 
 export default StoreList;
 
 const styles = StyleSheet.create({
-  scroll: {
-    marginTop: vs(5),
-    maxHeight: vs(400), // adjust as needed
-  },
   grid: {
+    paddingHorizontal: CARD_MARGIN,
+    paddingTop: vs(5),
     alignItems: 'center',
-    paddingHorizontal: s(10),
   },
   card: {
-    width: width - s(40),
-    height: vs(80),
+    width: CARD_SIZE,
+    height: CARD_SIZE,
     backgroundColor: '#f5f5f5',
     borderRadius: s(12),
-    flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: s(20),
-    marginVertical: s(8),
+    justifyContent: 'center',
+    margin: CARD_MARGIN,
     elevation: 2,
   },
   image: {
-    width: s(50),
-    height: s(50),
-    marginRight: s(20),
+    width: s(100),
+    height: s(100),
+    marginBottom: s(10),
     resizeMode: 'contain',
   },
   label: {
-    fontSize: s(18),
+    fontSize: s(16),
     fontWeight: '600',
     color: '#333',
+    textAlign: 'center',
   },
 }); 

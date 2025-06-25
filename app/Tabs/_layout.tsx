@@ -67,11 +67,11 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="Notification"
+          name="Booking"
           options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
-              <Ionicons name="notifications" size={24} color={focused ? "#5d17b0" : "black"} />
+              <Ionicons name="clipboard" size={24} color={focused ? "#5d17b0" : "black"} />
             ),
             tabBarButton: (props) => <AnimatedTabBarButton {...props} />,
           }}

@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() =>router.push("/Profile")}>
+        <TouchableOpacity onPress={() =>router.push("/Notification")}>
           <ProfileImage />
         </TouchableOpacity>
       </View>
