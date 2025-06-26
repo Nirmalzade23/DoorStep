@@ -1,5 +1,6 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { s, vs } from 'react-native-size-matters';
 import Search from '../../component/searchBar';
 
@@ -76,10 +77,19 @@ const STORE_LISTS: Record<string, { name: string; image: any }[]> = {
   ],
 };
 
+// Flatten all stores into a single array with category
+const ALL_STORES = Object.entries(STORE_LISTS).flatMap(([category, stores]) =>
+  stores.map(store => ({ ...store, category }))
+);
+
 const explore = () => {
   const [search, setSearch] = useState('');
   const searchKey = search.trim().toLowerCase();
-  const storeList = STORE_LISTS[searchKey];
+  // Filter stores by name or category
+  const filteredStores = ALL_STORES.filter(store =>
+    store.name.toLowerCase().includes(searchKey) ||
+    store.category.toLowerCase().includes(searchKey)
+  );
   return (
     <View style={styles.container}>
       <Text style={{fontSize:s(25), marginBottom: vs(15)}}>explore</Text>
@@ -90,18 +100,39 @@ const explore = () => {
         <View style={styles.filterButton}><Text style={styles.filterText}>Distance</Text></View>
         <View style={styles.filterButton}><Text style={styles.filterText}>offers</Text></View>
       </View>
-      {storeList && (
+      {filteredStores.length > 0 && (
         <FlatList
-          data={storeList}
-          keyExtractor={(item) => item.name}
+          data={filteredStores}
+          keyExtractor={(item) => item.name + item.category}
           style={{marginTop: vs(20)}}
           renderItem={({ item }) => (
-            <View style={styles.storeCard}>
-              <Image source={item.image} style={styles.storeImage} />
-              <Text style={styles.storeName}>{item.name}</Text>
-            </View>
+            item.name === 'Sparkle Wash' ? (
+              <TouchableOpacity
+                style={styles.storeCard}
+                onPress={() => router.push({ pathname: '/StoreDetail', params: { storeName: 'Sparkle Wash' } })}
+                activeOpacity={0.7}
+              >
+                <Image source={item.image} style={styles.storeImage} />
+                <View>
+                  <Text style={styles.storeName}>{item.name}</Text>
+                  <Text style={{ color: '#888', fontSize: s(14) }}>{item.category}</Text>
+                </View>
+              </TouchableOpacity>
+            ) : (
+              <View style={styles.storeCard}>
+                <Image source={item.image} style={styles.storeImage} />
+                <View>
+                  <Text style={styles.storeName}>{item.name}</Text>
+                  <Text style={{ color: '#888', fontSize: s(14) }}>{item.category}</Text>
+                </View>
+              </View>
+            )
           )}
+          showsVerticalScrollIndicator={false}
         />
+      )}
+      {filteredStores.length === 0 && (
+        <Text style={{marginTop: vs(30), color: '#888'}}>No results found.</Text>
       )}
     </View>
   );

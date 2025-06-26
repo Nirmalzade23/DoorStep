@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import SparkleWashDetail from '../component/SparkleWashDetail';
 
 const STORE_ITEMS: Record<string, { name: string }[]> = {
   Food: [
@@ -102,6 +103,9 @@ const STORE_OVERVIEWS: Record<string, { type: 'delivery' | 'service', text: stri
 
 const StoreDetail = () => {
   const { storeName } = useLocalSearchParams();
+  if (storeName === 'Sparkle Wash') {
+    return <SparkleWashDetail />;
+  }
   const items = STORE_ITEMS[storeName as string];
   const overview = STORE_OVERVIEWS[storeName as string];
 
