@@ -106,11 +106,11 @@ const explore = () => {
           keyExtractor={(item) => item.name + item.category}
           style={{marginTop: vs(20)}}
           renderItem={({ item }) => (
-            item.name === 'Sparkle Wash' ? (
+            (item.name === 'Sparkle Wash' || item.name === 'Clean Machine' || item.name === 'AutoShine'  || item.name === 'WashPro') ? (
               <TouchableOpacity
                 style={styles.storeCard}
-                onPress={() => router.push({ pathname: '/StoreDetail', params: { storeName: 'Sparkle Wash' } })}
-                activeOpacity={0.7}
+                onPress={() => router.push({ pathname: '/StoreDetail', params: { storeName: item.name } })}
+                activeOpacity={0.8}
               >
                 <Image source={item.image} style={styles.storeImage} />
                 <View>

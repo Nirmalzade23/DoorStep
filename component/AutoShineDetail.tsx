@@ -5,26 +5,26 @@ import { s, vs } from 'react-native-size-matters';
 
 const reviews = [
   {
-    user: 'Amit Sharma',
-    comment: 'Excellent service! My car looks brand new. Highly recommend Sparkle Wash.',
+    user: 'Rohit Sinha',
+    comment: 'AutoShine made my car look like new! Great attention to detail.',
     rating: 5,
   },
   {
-    user: 'Priya Singh',
-    comment: 'Quick and professional. Roshan did a fantastic job!',
+    user: 'Neha Gupta',
+    comment: 'Very satisfied with the service. Friendly staff and quick turnaround.',
     rating: 4,
   },
   {
-    user: 'Rahul Verma',
-    comment: 'Affordable and reliable car wash service.',
-    rating: 4,
+    user: 'Suresh Rao',
+    comment: 'Good value and excellent results. Will recommend to friends.',
+    rating: 5,
   },
 ];
 
 const services = [
   'Car Wash',
-  'Dainting',
-  'Painting',
+  'Waxing',
+  'Detailing',
   'Servicing',
 ];
 
@@ -33,7 +33,7 @@ const timeSlots: string[] = [
   '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
 ];
 
-const SparkleWashDetail = () => {
+const AutoShineDetail = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
@@ -54,10 +54,10 @@ const SparkleWashDetail = () => {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
-        <Text style={styles.title}>Sparkle Wash</Text>
+        <Text style={styles.title}>AutoShine</Text>
         <Image source={require('../assets/images/carwash.jpg')} style={styles.image} />
         <Text style={styles.info}>
-          Sparkle Wash offers top-notch car cleaning services with attention to detail and customer satisfaction. We use eco-friendly products and modern equipment to ensure your car shines inside and out.
+          AutoShine specializes in premium car care and detailing. Our expert team uses advanced products to give your car a brilliant shine and protection.
         </Text>
         <Text style={styles.sectionTitle}>Services:</Text>
         <View style={styles.servicesRow}>
@@ -67,8 +67,8 @@ const SparkleWashDetail = () => {
             </View>
           ))}
         </View>
-        <Text style={styles.sectionTitle}>Service Provider: <Text style={{color:'#5d17b0'}}>Roshan</Text></Text>
-        <Text style={styles.sectionTitle}>Rating: <Text style={{color:'#f1c40f'}}>4.5/5 ⭐</Text></Text>
+        <Text style={styles.sectionTitle}>Service Provider: <Text style={{color:'#5d17b0'}}>Priyansh</Text></Text>
+        <Text style={styles.sectionTitle}>Rating: <Text style={{color:'#f1c40f'}}>4.7/5 ⭐</Text></Text>
         <Text style={styles.sectionTitle}>Customer Reviews:</Text>
         {reviews.map((review, idx) => (
           <View key={idx} style={styles.reviewBox}>
@@ -119,7 +119,7 @@ const SparkleWashDetail = () => {
   );
 };
 
-export default SparkleWashDetail;
+export default AutoShineDetail;
 
 const styles = StyleSheet.create({
   scrollContainer: {

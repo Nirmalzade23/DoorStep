@@ -1,7 +1,11 @@
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import AutoShineDetail from '../component/AutoShineDetail';
+import CleanMachineDetail from '../component/CleanMachineDetail';
+import QuickCarWashDetail from '../component/QuickCarWashDetail';
 import SparkleWashDetail from '../component/SparkleWashDetail';
+import WashProDetail from '../component/WashProDetail';
 
 const STORE_ITEMS: Record<string, { name: string }[]> = {
   Food: [
@@ -105,6 +109,18 @@ const StoreDetail = () => {
   const { storeName } = useLocalSearchParams();
   if (storeName === 'Sparkle Wash') {
     return <SparkleWashDetail />;
+  }
+  if (storeName === 'Clean Machine') {
+    return <CleanMachineDetail />;
+  }
+  if (storeName === 'AutoShine') {
+    return <AutoShineDetail />;
+  }
+  if (storeName === 'WashPro') {
+    return <WashProDetail />;
+  }
+  if (storeName === 'Quick Car Wash') {
+    return <QuickCarWashDetail />;
   }
   const items = STORE_ITEMS[storeName as string];
   const overview = STORE_OVERVIEWS[storeName as string];
