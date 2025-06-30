@@ -30,14 +30,14 @@ const index = () => {
       </View>
 
 
-      <TouchableOpacity onPress={() => router.push("/Tabs/Home")}>
+      <TouchableOpacity onPress={() => router.push("/Login")}>
         <View style={styles.btn}>
 
           <Text style={{
             color: "#fff",
             justifyContent: "center",
             alignItems: "center"
-          }}>Get Start</Text>
+          }}>Get Started</Text>
 
         </View>
       </TouchableOpacity>
