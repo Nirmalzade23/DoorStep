@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 48,
         borderWidth: 1,
-        borderColor: '#D1D5DB', // gray-300
+        borderColor: '#D1D5DB', 
         borderRadius: 8,
         flexDirection: 'row',
         alignItems: 'center',
@@ -161,12 +161,12 @@ const styles = StyleSheet.create({
     divider: {
         flex: 1,
         height: 1,
-        backgroundColor: '#D1D5DB', // gray-300
+        backgroundColor: '#D1D5DB', 
     },
     dividerText: {
         marginHorizontal: 8,
         fontSize: 14,
-        color: '#6B7280', // gray-500
+        color: '#6B7280', 
     },
     socialLoginContainer: {
         flexDirection: 'row',
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     socialButton: {
         padding: 12,
         borderWidth: 1,
-        borderColor: '#D1D5DB', // gray-300
+        borderColor: '#D1D5DB', 
         borderRadius: 8,
     },
     registerContainer: {
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     registerText: {
-        color: '#6B7280', // gray-500
+        color: '#6B7280', 
     },
     registerLink: {
         color: '#5d17b0',

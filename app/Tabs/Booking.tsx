@@ -4,7 +4,7 @@ import React from 'react'
 const Notification = () => {
   return (
     <View style={styles.container}>
-      <Text>Notification</Text>
+      <Text style={{textAlign:"center", fontWeight:"semibold", fontSize:35,}}>Profile</Text>
     </View>
   )
 }

@@ -4,7 +4,14 @@ import React from 'react'
 const Profile = () => {
   return (
     <View style={styles.container}>
-     <Text>hello</Text>
+     <Text style={{textAlign:"center",
+      fontWeight:"semibold", fontSize: 35, color: "#000"}}>
+     Notification</Text>
+
+     <View>
+
+      
+     </View>
     </View>
   )
 }
@@ -14,7 +21,8 @@ export default Profile
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:"#ffff"
+    backgroundColor:"#FFF",
+    
   }
   
 })
